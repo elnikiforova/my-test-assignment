@@ -1,31 +1,20 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Book } from '../models/book.model';
 import { Observable } from 'rxjs';
+import { AppState } from '../app.state';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
-  books: Book[] = [
-    {
-      id: 123,
-      title: 'Illyad',
-      author: 'Homer',
-      pageCount: 500,
-      date: '500 BC'
-    },
-    {
-      id: 124,
-      title: 'Oddisey',
-      author: 'Homer',
-      pageCount: 500,
-      date: '500 BC'
-    },
-  ];
+  books: Observable<Book[]>;
 
-  constructor() { }
+  constructor(private store: Store<AppState>) {
+    this.books = store.select('book');
+  }
 
-  getBooks() {
+  getBooks(): Observable<Book[]> {
     return this.books;
   }
 }
