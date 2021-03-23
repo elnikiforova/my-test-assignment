@@ -3,7 +3,7 @@
 const array = [1, 2, 5, 7, 7, 11, 12, 11, 1, 12];
 
 function findUnique(arr) {
-  return new Set(arr);
+  return [...new Set(arr)];
 }
 
 console.log('findUnique(array) >>>>', findUnique(array));
@@ -14,14 +14,10 @@ console.log('findUnique(array) >>>>', findUnique(array));
 const array2 = [2, 1, 3, 5];
 
 function findMissing(arr) {
-  const n = arr.length;
-  let total = Math.floor((n + 1) * (n + 2) / 2);
+  const n = arr.length + 1;
+  const total = n * (n + 1) / 2;
 
-  for (let i = 0; i < n; i++) {
-    total -= arr[i];
-  }
-
-  return total;
+  return total - arr.reduce((el, accum) => el + accum);
 }
 
 console.log('findMissing(array2) >>>>', findMissing(array2));
