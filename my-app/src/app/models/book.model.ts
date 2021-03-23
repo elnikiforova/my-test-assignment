@@ -5,3 +5,5 @@ export class Book {
   pageCount: number;
   date: string;
 }
+
+// export interface?
