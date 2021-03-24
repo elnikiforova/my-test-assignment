@@ -16,6 +16,8 @@ export function BookReducer(state: Book[] = [initialState], action: BookActions.
       return [...state, action.payload];
     case BookActions.REMOVE_BOOK:
       return state.filter(el => el.id !== action.payload);
+    case BookActions.EDIT_BOOK:
+      return state.map(el => el.id === action.payload.id ? action.payload : el);
     default:
       return state;
   }

@@ -1,0 +1,12 @@
+<div class="jw-modal">
+  <div class="jw-modal-body">
+    <input type="text" placeholder="title" value={{book.title}} #title>
+    <input type="text" placeholder="author" value={{book.author}} #author>
+    <input type="text" placeholder="pageCount" value={{book.pageCount}} #pageCount>
+    <input type="text" placeholder="date" value={{book.date}} #date>
+
+    <button class="add-book-close"
+      (click)="editBook(title.value,author.value,pageCount.value,date.value )">Edit!</button>
+  </div>
+</div>
+<div class="jw-modal-background"></div>

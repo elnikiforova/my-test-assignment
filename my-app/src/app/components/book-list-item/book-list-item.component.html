@@ -1,5 +1,9 @@
 <div>
   <span> Title: {{book.title}}; author: {{book.author}}</span>
-  <button class="edit">edit</button>
+  <button class="edit" (click)="openModal('edit-book-modal', book)">edit</button>
   <button class="del" (click)="delBook()">X</button>
 </div>
+
+<app-edit-book id="edit-book-modal" [book]="book">
+  <button class="close-modal" (click)="closeModal('edit-book-modal');">X</button>
+</app-edit-book>

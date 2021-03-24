@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { Book } from '../../models/book.model';
 import { AppState } from '../../app.state';
 import * as BookActions from '../../actions/book.actions';
+import { BookService } from '../../services/book.service';
+import { ModalService } from '../../_modal';
 
 @Component({
   selector: 'app-book-list-item',
@@ -12,14 +14,21 @@ import * as BookActions from '../../actions/book.actions';
 export class BookListItemComponent implements OnInit {
   @Input() book: Book;
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>, private bookService: BookService, private modalService: ModalService) { }
 
   ngOnInit(): void {
   }
 
   delBook() {
-    console.log('hey', this.book.id);
     this.store.dispatch(new BookActions.RemoveBook(this.book.id));
+  }
+
+  openModal(id: string, book: Book) {
+    this.modalService.open(id, book);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 
 }
