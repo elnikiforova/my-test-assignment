@@ -42,3 +42,18 @@ h1 {
   float: right;
 }
 
+.add-book {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-modal {
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  float: right;
+}
