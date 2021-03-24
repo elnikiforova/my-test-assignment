@@ -1,14 +1,15 @@
-<div class={{this.classRoot}}>
+<div class="jw-modal">
+  <div class="jw-modal-body flex flex-col">
+    <input type="text" placeholder="title" value={{book.title}} #title class={{this.classInput}}>
 
-  <input type="text" placeholder="title" value={{this.book.title}} #title class={{this.classInput}}>
+    <input type="text" placeholder="author" value={{book.author}} #author class={{this.classInput}}>
 
-  <input type="text" placeholder="author" value={{this.book.author}} #author class={{this.classInput}}>
+    <input type="text" placeholder="pageCount" value={{book.pageCount}} #pageCount class={{this.classInput}}>
 
-  <input type="text" placeholder="pageCount" value={{this.book.pageCount}} #pageCount class={{this.classInput}}>
+    <input type="text" placeholder="date" value={{book.date}} #date class={{this.classInput}}>
 
-  <input type="text" placeholder="date" value={{this.book.date}} #date class={{this.classInput}}>
-
-  <button class={{this.classBtn}} (click)="addBook(title.value,author.value,pageCount.value,date.value )">add this
-    book</button>
-
+    <button class={{this.classBtn}} (click)="addBook(title.value,author.value,pageCount.value,date.value )">add this
+      book</button>
+  </div>
 </div>
+<div class="jw-modal-background"></div>

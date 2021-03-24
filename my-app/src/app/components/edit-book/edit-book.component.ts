@@ -1,13 +1,13 @@
 // модальное окно для редактирования книг
-import { Component, OnInit, ViewEncapsulation, OnDestroy, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, ElementRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from '../../app.state';
+import { BookService } from '../../services/book.service';
 import * as BookActions from '../../actions/book.actions';
 import { Book } from 'src/app/models/book.model';
-import { ModalService } from '../../_modal/modal.service';
+import { ModalService } from '../../services/modal.service';
 import { Classes } from '../../../classes.config';
-
 
 @Component({
   selector: 'app-edit-book',
@@ -15,20 +15,27 @@ import { Classes } from '../../../classes.config';
   styleUrls: ['./edit-book.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class EditBookComponent implements OnInit, OnDestroy {
+export class EditBookComponent implements OnInit {
   classRoot = Classes.ADD_BOOK_ROOT;
   classInput = Classes.ADD_BOOK_INPUT;
   classBtn = Classes.ADD_BOOK_BTN;
+
+  books: Book[];
 
   @Input() book: Book;
   @Input() id: string;
   private element: any;
 
-  constructor(private store: Store<AppState>, private modalService: ModalService, private el: ElementRef) {
+  constructor(private store: Store<AppState>, private bookService: BookService, private modalService: ModalService, private el: ElementRef) {
     this.element = el.nativeElement;
   }
 
   ngOnInit(): void {
+    // get all books
+    this.bookService.getBooks().subscribe(books => {
+      this.books = books;
+    });
+
     // ensure id attribute exists
     if (!this.id) {
       console.error('modal must have an id');
@@ -49,14 +56,11 @@ export class EditBookComponent implements OnInit, OnDestroy {
     this.modalService.add(this);
   }
 
-  ngOnDestroy(): void {
-    this.modalService.remove(this.id);
-    this.element.remove();
-  }
-
   // open modal
-  open(book): void {
-    this.book = book;
+  open(book?): void {
+    if (book) {
+      this.book = book;
+    }
     this.element.style.display = 'block';
     document.body.classList.add('jw-modal-open');
   }

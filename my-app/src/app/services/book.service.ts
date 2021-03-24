@@ -2,6 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import * as BookActions from '../actions/book.actions';
 import { Book } from '../models/book.model';
 import { Observable } from 'rxjs';
 import { AppState } from '../app.state';
@@ -18,5 +19,10 @@ export class BookService {
 
   getBooks(): Observable<Book[]> {
     return this.books;
+  }
+
+  delBook(id: number) {
+
+    this.store.dispatch(new BookActions.RemoveBook(id));
   }
 }

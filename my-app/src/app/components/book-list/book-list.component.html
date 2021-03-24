@@ -1,9 +1,6 @@
-<app-book-list-item *ngFor="let book of books" [book]="book">
+<app-book-list-item *ngFor="let book of books" [book]="book" (delBook)="delBook($event)">
 </app-book-list-item>
 
 <button class={{this.classBtn}} (click)="openModal('add-book-modal')">add a new book</button>
 
-<jw-modal id="add-book-modal">
-  <button class={{this.classBtnX}} (click)="closeModal('add-book-modal');">x</button>
-  <app-add-book></app-add-book>
-</jw-modal>
+<app-add-book id="add-book-modal"></app-add-book>

@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { BookListItemComponent } from './components/book-list-item/book-list-item.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
-import { ModalModule } from './_modal/modal.module';
 import { EditBookComponent } from './components/edit-book/edit-book.component';
 
 @NgModule({
@@ -27,8 +26,7 @@ import { EditBookComponent } from './components/edit-book/edit-book.component';
       book: BookReducer
     }, {
       metaReducers: [storageMetaReducer]
-    }),
-    ModalModule
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

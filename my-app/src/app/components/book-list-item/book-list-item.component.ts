@@ -1,13 +1,13 @@
 // компонент элемент из спика книг
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { Book } from '../../models/book.model';
 import { AppState } from '../../app.state';
 import * as BookActions from '../../actions/book.actions';
 import { BookService } from '../../services/book.service';
-import { ModalService } from '../../_modal';
+import { ModalService } from '../../services/modal.service';
 import { Classes } from '../../../classes.config';
 
 @Component({
@@ -21,22 +21,22 @@ export class BookListItemComponent implements OnInit {
   classText = Classes.SEMIBOLD_TEXT;
 
   @Input() book: Book;
+  @Output() delBook: EventEmitter<Book> = new EventEmitter();
 
   constructor(private store: Store<AppState>, private bookService: BookService, private modalService: ModalService) { }
 
   ngOnInit(): void {
   }
 
-  delBook() {
-    this.store.dispatch(new BookActions.RemoveBook(this.book.id));
+  onDelete(book) {
+    this.delBook.emit(book);
   }
 
-  openModal(id: string, book: Book) {
-    this.modalService.open(id, book);
+  openModal() {
+    this.modalService.open('edit-book-modal', this.book);
   }
 
   closeModal(id: string) {
     this.modalService.close(id);
   }
-
 }

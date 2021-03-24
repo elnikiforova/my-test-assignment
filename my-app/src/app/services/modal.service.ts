@@ -10,11 +10,6 @@ export class ModalService {
     this.modals.push(modal);
   }
 
-  remove(id: string) {
-    // remove modal from array of active modals
-    this.modals = this.modals.filter(x => x.id !== id);
-  }
-
   open(id: string, book?: Book) {
     // open modal specified by id
     const modal = this.modals.find(x => x.id === id);
