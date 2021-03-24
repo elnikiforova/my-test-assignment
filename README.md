@@ -37,3 +37,5 @@ reversePrint(someList);
 В качестве хранилища нужно использовать localStorage (при закрытии окна браузера и повторном открытии - данные должны восстанавливаться).
 Очень желательно использовать: “ngrx”, “directive”, “pipe”, ”services”. 
 Все должно быть разбито на разные компоненты.
+
+[посмотреть приложение можно по ссылке https://elnikiforova.github.io/angular-crud/](https://elnikiforova.github.io/angular-crud/)
