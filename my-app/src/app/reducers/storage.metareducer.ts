@@ -1,3 +1,5 @@
+// сохранение ngrx state в localstorage
+
 import { ActionReducer, Action } from '@ngrx/store';
 import { merge, pick } from 'lodash-es';
 

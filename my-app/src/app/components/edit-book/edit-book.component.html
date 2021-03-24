@@ -1,12 +1,15 @@
 <div class="jw-modal">
-  <div class="jw-modal-body">
-    <input type="text" placeholder="title" value={{book.title}} #title>
-    <input type="text" placeholder="author" value={{book.author}} #author>
-    <input type="text" placeholder="pageCount" value={{book.pageCount}} #pageCount>
-    <input type="text" placeholder="date" value={{book.date}} #date>
+  <div class="jw-modal-body flex flex-col">
+    <input type="text" placeholder="title" value={{book.title}} #title class={{this.classInput}}>
 
-    <button class="add-book-close"
-      (click)="editBook(title.value,author.value,pageCount.value,date.value )">Edit!</button>
+    <input type="text" placeholder="author" value={{book.author}} #author class={{this.classInput}}>
+
+    <input type="text" placeholder="pageCount" value={{book.pageCount}} #pageCount class={{this.classInput}}>
+
+    <input type="text" placeholder="date" value={{book.date}} #date class={{this.classInput}}>
+
+    <button class={{this.classBtn}}
+      (click)="editBook(title.value,author.value,pageCount.value,date.value )">confirm</button>
   </div>
 </div>
 <div class="jw-modal-background"></div>

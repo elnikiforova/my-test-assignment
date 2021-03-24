@@ -1,9 +1,14 @@
-<div class="add-book">
+<div class={{this.classRoot}}>
 
-  <input type="text" placeholder="title" #title>
-  <input type="text" placeholder="author" #author>
-  <input type="text" placeholder="pageCount" #pageCount>
-  <input type="text" placeholder="date" #date>
+  <input type="text" placeholder="title" value={{this.book.title}} #title class={{this.classInput}}>
 
-  <button class="add-book-close" (click)="addBook(title.value,author.value,pageCount.value,date.value )">Add!</button>
+  <input type="text" placeholder="author" value={{this.book.author}} #author class={{this.classInput}}>
+
+  <input type="text" placeholder="pageCount" value={{this.book.pageCount}} #pageCount class={{this.classInput}}>
+
+  <input type="text" placeholder="date" value={{this.book.date}} #date class={{this.classInput}}>
+
+  <button class={{this.classBtn}} (click)="addBook(title.value,author.value,pageCount.value,date.value )">add this
+    book</button>
+
 </div>

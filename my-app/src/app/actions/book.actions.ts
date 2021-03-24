@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core'
-import { Action } from '@ngrx/store'
+// мои actions для bookreducer
+
+import { Action } from '@ngrx/store';
 import { Book } from '../models/book.model';
 
 export const ADD_BOOK = '[BOOK] Add';

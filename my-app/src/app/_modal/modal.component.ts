@@ -28,7 +28,7 @@ export class ModalComponent implements OnInit, OnDestroy {
 
     // close modal on background click
     this.element.addEventListener('click', el => {
-      if (el.target.className === 'jw-modal' || el.target.className == 'add-book-close') {
+      if (el.target.className === 'jw-modal' || el.target.classList.contains('add-book-close')) {
         this.close();
       }
     });

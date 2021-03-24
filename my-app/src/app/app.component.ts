@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Classes } from '../classes.config';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-app';
+  classRoot = Classes.APP_ROOT;
+  classH1 = Classes.H_1;
 }

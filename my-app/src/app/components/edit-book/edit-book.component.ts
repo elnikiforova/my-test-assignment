@@ -1,3 +1,4 @@
+// модальное окно для редактирования книг
 import { Component, OnInit, ViewEncapsulation, OnDestroy, Input, ElementRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 
@@ -5,6 +6,7 @@ import { AppState } from '../../app.state';
 import * as BookActions from '../../actions/book.actions';
 import { Book } from 'src/app/models/book.model';
 import { ModalService } from '../../_modal/modal.service';
+import { Classes } from '../../../classes.config';
 
 
 @Component({
@@ -14,6 +16,10 @@ import { ModalService } from '../../_modal/modal.service';
   encapsulation: ViewEncapsulation.None
 })
 export class EditBookComponent implements OnInit, OnDestroy {
+  classRoot = Classes.ADD_BOOK_ROOT;
+  classInput = Classes.ADD_BOOK_INPUT;
+  classBtn = Classes.ADD_BOOK_BTN;
+
   @Input() book: Book;
   @Input() id: string;
   private element: any;
@@ -34,7 +40,7 @@ export class EditBookComponent implements OnInit, OnDestroy {
 
     // close modal on background click
     this.element.addEventListener('click', el => {
-      if (el.target.className === 'jw-modal' || el.target.className == 'add-book-close') {
+      if (el.target.className === 'jw-modal' || el.target.classList.contains('add-book-close')) {
         this.close();
       }
     });

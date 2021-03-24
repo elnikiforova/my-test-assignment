@@ -23,6 +23,7 @@
     "lodash-es": "^4.17.21",
     "ngrx-store-localstorage": "^11.0.0",
     "rxjs": "~6.6.0",
+    "tailwindcss": "^2.0.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },
@@ -40,6 +41,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "postcss": "^8.2.8",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",

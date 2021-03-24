@@ -1,13 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+// компонент список книг
+
+import { ClassSansProvider, Component, OnInit } from '@angular/core';
 import { Book } from '../../models/book.model';
 import { BookService } from '../../services/book.service';
 import { ModalService } from '../../_modal';
+import { Classes } from '../../../classes.config';
 
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html'
 })
 export class BookListComponent implements OnInit {
+  classBtn = Classes.ADD_BTN;
+  classBtnX = Classes.MODAL_X_BTN;
+  
   books: Book[];
 
   constructor(private bookService: BookService, private modalService: ModalService) { }

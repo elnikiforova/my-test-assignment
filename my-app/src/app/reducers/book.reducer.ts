@@ -1,4 +1,5 @@
-import { Action } from '@ngrx/store';
+// reducer для ngrx state
+
 import { Book } from '../models/book.model';
 import * as BookActions from '../actions/book.actions';
 

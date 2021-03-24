@@ -1,3 +1,5 @@
+// сервис для запроса книг из компонента список книг
+
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Book } from '../models/book.model';

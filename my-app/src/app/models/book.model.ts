@@ -1,3 +1,5 @@
+
+// модель объекта книга
 export class Book {
   id: number;
   title: string;
@@ -5,5 +7,3 @@ export class Book {
   pageCount: number;
   date: string;
 }
-
-// export interface?
